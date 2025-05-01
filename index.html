@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gençlik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Pop-up Animasyonları */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .popup-overlay {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .popup-content {
+            animation: slideIn 0.5s ease-out, scaleIn 0.5s ease-out;
+        }
+        
+        .popup-title {
+            animation: pulse 2s infinite;
+        }
+        
+        .popup-button {
+            transition: all 0.3s ease;
+        }
+        
+        .popup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .popup-exit {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-2xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="./logoGenclik.jpg" alt="Gençlik Dil Logo" class="h-16">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#" class="nav-link text-gray-700 hover:text-indigo-600">Ana Sayfa</a>
+                    <a href="courses.html" class="nav-link text-gray-700 hover:text-indigo-600">Kurslar</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600">İletişim</a>
+                    <a href="seviye-tespit.html" class="nav-link text-gray-700 hover:text-indigo-600">Seviye Tespit</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="bg-indigo-600 text-white px-6 py-2.5 rounded-md hover:bg-indigo-700 font-semibold text-lg transition duration-300 ease-in-out transform hover:-translate-y-1">Giriş Yap</button>
+                    <button class="bg-green-600 text-white px-6 py-2.5 rounded-md hover:bg-green-700 font-semibold text-lg transition duration-300 ease-in-out transform hover:-translate-y-1">Kayıt Ol</button>
+                    <a href="bursluluk.html" class="bg-yellow-600 text-white px-6 py-2.5 rounded-md hover:bg-yellow-700 font-semibold text-lg transition duration-300 ease-in-out transform hover:-translate-y-1">Bursluluk Sınavı</a>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 text-2xl transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 text-2xl transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider Section -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/education1.jpg" alt="Eğitim 1">
+                <div class="slide-content">
+                    <h2>Yeni Nesil Eğitim Platformu</h2>
+                    <p>En güncel eğitimler ve uzman eğitmenlerle öğrenmeye başlayın</p>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Hemen Başla</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/education2.jpg" alt="Eğitim 2">
+                <div class="slide-content">
+                    <h2>Online Eğitimde Yeni Dönem</h2>
+                    <p>7/24 erişim ve interaktif öğrenme deneyimi</p>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Keşfet</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/education3.jpg" alt="Eğitim 3">
+                <div class="slide-content">
+                    <h2>Profesyonel Eğitimler</h2>
+                    <p>Kariyerinizi bir üst seviyeye taşıyın</p>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Detaylar</button>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-indigo-800">Dil Kurslarımız</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- İngilizce Kursu -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 course-card">
+                <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="İngilizce Kursu - London Eye" class="w-full object-cover">
+                <div class="p-6 content">
+                    <h3 class="text-xl font-bold mb-2">İngilizce Kursu</h3>
+                    <p class="text-gray-600 mb-4">Beginner'dan Advanced'e kadar kapsamlı İngilizce eğitimi</p>
+                    <ul class="text-gray-600 mb-4">
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Native speaker eğitmenler
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            İş İngilizcesi
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            TOEFL/IELTS hazırlık
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Detaylı Bilgi</button>
+                </div>
+            </div>
+
+            <!-- Almanca Kursu -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 course-card">
+                <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb0a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="w-full object-cover">
+                <div class="p-6 content">
+                    <h3 class="text-xl font-bold mb-2">Almanca Kursu</h3>
+                    <p class="text-gray-600 mb-4">A1'den C2'ye kadar tüm seviyelerde Almanca eğitimi</p>
+                    <ul class="text-gray-600 mb-4">
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Konuşma pratiği
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Gramer eğitimi
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Telaffuz çalışmaları
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Detaylı Bilgi</button>
+                </div>
+            </div>
+
+            <!-- Diğer Diller -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 course-card">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Diğer Diller" class="w-full object-cover">
+                <div class="p-6 content">
+                    <h3 class="text-xl font-bold mb-2">Diğer Diller</h3>
+                    <p class="text-gray-600 mb-4">İspanyolca, İtalyanca, Rusça ve daha fazlası</p>
+                    <ul class="text-gray-600 mb-4">
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Özel ders imkanı
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Esnek program
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Kültür odaklı eğitim
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Detaylı Bilgi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="bg-indigo-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Hakkımızda</h2>
+                    <p class="text-lg mb-6">Afyon'da 20 yıldan fazladır dil eğitimi veriyoruz. Deneyimli eğitmen kadromuz ve modern eğitim yöntemlerimizle öğrencilerimize en iyi dil eğitimini sunuyoruz.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-indigo-200 mb-2">20+</div>
+                            <div class="text-indigo-200">Yıllık Deneyim</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-indigo-200 mb-2">1000+</div>
+                            <div class="text-indigo-200">Mezun Öğrenci</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="./images/akdAfyonBina.jpg" alt="Eğitim Merkezi" class="rounded-lg shadow-xl">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-xl">
+                        <div class="text-indigo-800 font-bold text-xl mb-2">Neden Biz?</div>
+                        <ul class="text-gray-600">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Uzman Eğitmenler
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Modern Eğitim Yöntemleri
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Esnek Program Seçenekleri
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-hidden transition-all duration-500 transform translate-y-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">İletişim Formu</h3>
+                <button id="closeModal" class="text-gray-400 hover:text-gray-500">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Ad Soyad</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Telefon Numarası</label>
+                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Mesajınız</label>
+                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+                        Gönder
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- Kayıt Pop-up -->
+    <div id="registrationPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 popup-overlay">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 transform transition-all popup-content">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-4 popup-title">2025-2026 Kayıtlarımız Başlamıştır!</h3>
+                <p class="text-gray-600 mb-6">Yeni dönem kayıtlarımız için hemen başvurun. Sınırlı kontenjanlarımız dolmadan yerinizi ayırtın.</p>
+                <div class="flex justify-center space-x-4">
+                    <button id="closePopup" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 font-medium popup-button">
+                        Kapat
+                    </button>
+                    <a href="contact.html" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 font-medium popup-button">
+                        Hemen Başvur
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pop-up gösterimi
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('registrationPopup');
+            const closeBtn = document.getElementById('closePopup');
+            
+            // Pop-up'ı göster
+            popup.classList.remove('hidden');
+            
+            // Kapatma butonuna tıklandığında
+            closeBtn.addEventListener('click', function() {
+                popup.classList.add('popup-exit');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                    popup.classList.remove('popup-exit');
+                }, 500);
+            });
+            
+            // Pop-up dışına tıklandığında
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.classList.add('popup-exit');
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                        popup.classList.remove('popup-exit');
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

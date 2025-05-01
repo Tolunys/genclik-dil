@@ -1,0 +1,12 @@
+{
+  "name": "genclik-dil",
+  "version": "1.0.0",
+  "description": "Gençlik Dil Kursu Web Sitesi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 
