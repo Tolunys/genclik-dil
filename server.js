@@ -1,28 +1,16 @@
+// server.js dosyanızda
 const express = require('express');
-const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
-// Middleware
-app.use(express.static(path.join(__dirname)));
-
-// Ana sayfayı sun
+// Root endpoint ekleyin - ÇOK ÖNEMLİ!
 app.get('/', (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, 'index.html'));
-    } catch (error) {
-        console.error('Error serving index.html:', error);
-        res.status(500).send('Internal Server Error');
-    }
+  res.status(200).send('Uygulama çalışıyor!');
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
+// Diğer route'larınız...
 
-// Server başlatma
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-}); 
+// Uygulama başlatma
+app.listen(PORT, '0.0.0.0', () => {  // '0.0.0.0' önemli!
+  console.log(`Server is running on port ${PORT}`);
+});
