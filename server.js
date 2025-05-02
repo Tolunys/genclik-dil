@@ -1,3 +1,8 @@
+// server.js
+require('dotenv').config();    // ← mutlaka en üstte
+const express = require('express');
+…
+
 const express = require('express');
 const path = require('path');
 const app = express();
