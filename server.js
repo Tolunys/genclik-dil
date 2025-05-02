@@ -1,17 +1,22 @@
 // server.js
-require('dotenv').config();    // ← mutlaka en üstte
-const express = require('express');
-…
 
+// 1) Ortam değişkenlerini yükle
+require('dotenv').config();
+
+// 2) Gerekli modüller
 const express = require('express');
-const path = require('path');
+const path    = require('path');
+
+// 3) Express uygulamasını yarat
 const app = express();
+
+// 4) PORT değerini al (Railway atar, yoksa 3000)
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// 5) Middleware’ler
 app.use(express.static(path.join(__dirname)));
 
-// Ana sayfayı sun
+// 6) Ana sayfayı sun
 app.get('/', (req, res) => {
     try {
         res.sendFile(path.join(__dirname, 'index.html'));
@@ -21,14 +26,14 @@ app.get('/', (req, res) => {
     }
 });
 
-// Error handling middleware
+// 7) Hata yakalama middleware’i
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
 });
 
-// Server başlatma
+// 8) Sunucuyu başlat
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-}); 
-//Flag
+});
+
