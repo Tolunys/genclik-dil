@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 8080;
 app.get('/', (req, res) => {
   res.status(200).send('Uygulama çalışıyor!');
 });
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 // Diğer route'larınız...
 
