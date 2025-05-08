@@ -4,11 +4,7 @@
   "description": "Gençlik Dil Okulu Web Sitesi",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node server.js",
-=======
-   "start": "node server.js",
->>>>>>> 05591bd354cf335f60920db657cc9acce50384ef
     "dev": "nodemon server.js"
   },
   "dependencies": {
@@ -20,4 +16,4 @@
   "devDependencies": {
     "nodemon": "^3.0.2"
   }
-} 
+}
